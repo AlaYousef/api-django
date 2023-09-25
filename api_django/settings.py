@@ -66,6 +66,14 @@ ALLOWED_HOSTS = ['8000-alayousef-apidjango-klfjj19mi6z.ws-eu104.gitpod.io',
                 'apidjango-a1b0ccf0d7a8.herokuapp.com']
 
 
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
+
 # Application definition
 
 INSTALLED_APPS = [
