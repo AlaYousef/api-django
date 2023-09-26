@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import re
 from pathlib import Path
 import os
 import dj_database_url
@@ -62,7 +62,7 @@ SECRET_KEY = 'django-insecure-^x__$j-s0n_7)9t4&hy#b%@@(=f#6rgyosxusq)6aot!o1%ubm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-alayousef-apidjango-klfjj19mi6z.ws-eu104.gitpod.io', 
+ALLOWED_HOSTS = ['8000-alayousef-apidjango-25w6megfzon.ws-eu104.gitpod.io', 
                 'apidjango-a1b0ccf0d7a8.herokuapp.com']
 
 
