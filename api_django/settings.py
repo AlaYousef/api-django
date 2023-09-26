@@ -60,19 +60,27 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = 'django-insecure-^x__$j-s0n_7)9t4&hy#b%@@(=f#6rgyosxusq)6aot!o1%ubm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-alayousef-apidjango-25w6megfzon.ws-eu104.gitpod.io', 
                 'apidjango-a1b0ccf0d7a8.herokuapp.com']
 
 
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+
 if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+    extracted_url = re.match(
+        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE
+    ).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
 CORS_ALLOW_CREDENTIALS = True
+
 
 # Application definition
 
